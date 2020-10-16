@@ -1,0 +1,32 @@
+﻿@using SimchaChipIn.Web.Models
+@model ContributorHistoryViewModel
+
+
+<div class="row header">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <tr style="text-align: center; vertical-align: middle;">
+                <th style="text-align: center; vertical-align: middle; width: 45%">Action</th>
+                <th style="text-align: center; vertical-align: middle;">Date</th>
+                <th style="text-align: center; vertical-align: middle;">Amount</th>
+            </tr>
+            @foreach(Transaction transaction in Model.Transactions)
+            {
+                <tr>
+                    <td>
+                        @transaction.Action
+                    </td>
+                    <td>
+                        @transaction.Date.ToShortDateString()
+                    </td>
+                    <td>
+                        @transaction.Amount.ToString("C")
+                    </td>
+                </tr>
+            }
+            </table>
+        </div>
+</div>
+<div style="margin-top:10px;">
+    <a class="btn btn-danger" href="/contributors">Back to Contributors</a>
+</div>
